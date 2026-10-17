@@ -11,7 +11,7 @@ import net.minecraft.world.item.*;
 
 import java.util.function.Function;
 
-public class CopyBoxItem implements ModInitializer {
+public class CopyBoxItem {
     public static ResourceKey<Item> create(String name) {
         // Create the item key.
         return ResourceKey.create(Registries.ITEM, CopyBox.id(name));
@@ -48,10 +48,10 @@ public class CopyBoxItem implements ModInitializer {
 //            builder.add(ModItems.QUARK_GLUON_PLASMA, 120 * 20);
 //        });
     }
-    @Override
-    public void onInitialize() {
-        CopyBoxItem.initialize();
-    }
+//    @Override
+//    public void onInitialize() {
+//        CopyBoxItem.initialize();
+//    }
 }
 
 

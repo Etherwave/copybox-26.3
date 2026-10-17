@@ -15,11 +15,11 @@ public class CopyBoxCreativeTabs {
             BuiltInRegistries.CREATIVE_MODE_TAB.key(), CopyBox.id("copybox_creative_tab")
     );
     public static final CreativeModeTab COPYBOX_CREATIVE_TAB = FabricCreativeModeTab.builder()
-            .icon(() -> new ItemStack(CopyBoxItem.COPYBOX_ITEM))
-            .title(Component.translatable("creativeTab.copybox"))
+            .icon(() -> new ItemStack(CopyBoxBlockItem.COPYBOX_BLOCK_ITEM))
+            .title(Component.translatable("creativeTab.copybox_block"))
             .displayItems((params, output) -> {
-                output.accept(CopyBoxItem.COPYBOX_ITEM);
                 output.accept(CopyBoxBlockItem.COPYBOX_BLOCK_ITEM);
+                //                output.accept(CopyBoxItem.COPYBOX_ITEM);
 //                output.accept(ModItems.POISONOUS_APPLE);
 
                 // The tab builder also accepts Blocks

@@ -21,8 +21,11 @@ public class CopyBox implements ModInitializer {
 		// However, some things (like resources) may still be uninitialized.
 		// Proceed with mild caution.
 		LOGGER.info("Hello Fabric world!");
-		CopyBoxItem.initialize(); // 加上这一行
+//		CopyBoxItem.initialize(); // 加上这一行
+		CopyBoxBlock.initialize();
 		CopyBoxBlockItem.initialize();
+		CopyBoxMenuTypes.initialize();
+		CopyBoxBlockEntity.initialize();
 		CopyBoxCreativeTabs.register();
 	}
 

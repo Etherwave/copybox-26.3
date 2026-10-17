@@ -1,6 +1,12 @@
 {
-  "parent": "minecraft:block/cube_all",
+  "parent": "minecraft:block/cube",
   "textures": {
-    "all": "copybox:block/copybox_block"
+    "particle": "copybox:block/copybox_block_north",
+    "down": "copybox:block/copybox_block_down",
+    "up": "copybox:block/copybox_block_up",
+    "north": "copybox:block/copybox_block_north",
+    "south": "copybox:block/copybox_block_south",
+    "west": "copybox:block/copybox_block_west",
+    "east": "copybox:block/copybox_block_east"
   }
 }
