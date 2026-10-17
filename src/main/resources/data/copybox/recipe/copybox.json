@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "#D#",
+    "###"
+  ],
+  "key": {
+    "#": "minecraft:dirt",
+    "D": "minecraft:dirt"
+  },
+  "result": {
+    "id": "copybox:copybox"
+  }
+}
