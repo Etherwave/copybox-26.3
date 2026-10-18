@@ -4,15 +4,13 @@ import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
 import net.minecraft.core.*;
 import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
 import net.minecraft.resources.Identifier;
-import net.minecraft.world.Container;
-import net.minecraft.world.ContainerHelper;
-import net.minecraft.world.InteractionResult;
-import net.minecraft.world.MenuProvider;
+import net.minecraft.world.*;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
@@ -28,7 +26,7 @@ import net.minecraft.world.level.storage.ValueOutput;
 import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.Nullable;
 
-public class CopyBoxBlockEntity extends BlockEntity implements Container, MenuProvider {
+public class CopyBoxBlockEntity extends BlockEntity implements Container, MenuProvider, WorldlyContainer {
 //    static ImplementedContainer of(NonNullList<ItemStack> items) {
 //        return () -> items;
 //    }
@@ -78,11 +76,33 @@ public class CopyBoxBlockEntity extends BlockEntity implements Container, MenuPr
     @Override
     public void clearContent() {
         this.getItems().clear();
+        this.setChanged();
     }
+
     @Override
-    public void setChanged() {
-        // Override if you want behavior.
+    public int[] getSlotsForFace(Direction side) {
+        int[] slots = new int[CONTAINER_SIZE - 1];
+        for (int i = 1; i < CONTAINER_SIZE; i++) {
+            slots[i - 1] = i;
+        }
+        return slots;
     }
+
+    @Override
+    public boolean canTakeItemThroughFace(int slot, ItemStack stack, Direction direction) {
+        // 槽位 0 是源格子，禁止漏斗抽取
+        return slot != 0;
+    }
+
+    @Override
+    public boolean canPlaceItemThroughFace(int slot, ItemStack stack, Direction direction) {
+        // 只允许漏斗向源格子（槽位 0）放入物品
+        return slot == 0;
+    }
+//    @Override
+//    public void setChanged() {
+//        // Override if you want behavior.
+//    }
 //    @Override
 //    public boolean stillValid(Player player) {
 //        return true;
@@ -172,25 +192,25 @@ public class CopyBoxBlockEntity extends BlockEntity implements Container, MenuPr
         return new CopyBoxBlockEntityMenu(containerId, inventory, this);
     }
 
-//    @Override
-//    public CompoundTag getUpdateTag(HolderLookup.Provider registryLookup) {
-//        return saveWithoutMetadata(registryLookup);
-//    }
-//
-//    @Override
-//    public Packet<ClientGamePacketListener> getUpdatePacket() {
-//        return ClientboundBlockEntityDataPacket.create(this);
-//    }
+    @Override
+    public CompoundTag getUpdateTag(HolderLookup.Provider registryLookup) {
+        return saveWithoutMetadata(registryLookup);
+    }
 
-//    @Override
-//    public void setChanged() {
-//        super.setChanged();
-//
-//        if (level == null) return;
-//
-//        BlockState state = getBlockState();
-//        level.sendBlockUpdated(worldPosition, state, state, Block.UPDATE_ALL);
-//    }
+    @Override
+    public Packet<ClientGamePacketListener> getUpdatePacket() {
+        return ClientboundBlockEntityDataPacket.create(this);
+    }
+
+    @Override
+    public void setChanged() {
+        super.setChanged();
+
+        if (level == null) return;
+
+        BlockState state = getBlockState();
+        level.sendBlockUpdated(worldPosition, state, state, Block.UPDATE_ALL);
+    }
 
 //    private int ticksSinceLast = 0;
 //    public static void tick(Level level,
