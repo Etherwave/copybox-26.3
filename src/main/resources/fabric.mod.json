@@ -3,9 +3,9 @@
 	"id": "copybox",
 	"version": "${version}",
 	"name": "CopyBox",
-	"description": "This is an example description! Tell everyone what your mod is about!",
+	"description": "This mod adds a copybox block to Minecraft!",
 	"authors": [
-		"Me!"
+		"EtherWave"
 	],
 	"contact": {
 		"homepage": "https://fabricmc.net/",

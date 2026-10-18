@@ -27,12 +27,6 @@ import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.Nullable;
 
 public class CopyBoxBlockEntity extends BlockEntity implements Container, MenuProvider, WorldlyContainer {
-//    static ImplementedContainer of(NonNullList<ItemStack> items) {
-//        return () -> items;
-//    }
-//    static ImplementedContainer ofSize(int size) {
-//        return of(NonNullList.withSize(size, ItemStack.EMPTY));
-//    }
     @Override
     public int getContainerSize() {
         return this.getItems().size();
@@ -99,14 +93,6 @@ public class CopyBoxBlockEntity extends BlockEntity implements Container, MenuPr
         // 只允许漏斗向源格子（槽位 0）放入物品
         return slot == 0;
     }
-//    @Override
-//    public void setChanged() {
-//        // Override if you want behavior.
-//    }
-//    @Override
-//    public boolean stillValid(Player player) {
-//        return true;
-//    }
 
     public CopyBoxBlockEntity(BlockPos pos, BlockState state) {
         super(CopyBoxBlockEntity.COPYBOX_BLOCK_ENTITY_TYPE, pos, state);
@@ -127,20 +113,6 @@ public class CopyBoxBlockEntity extends BlockEntity implements Container, MenuPr
         return Container.stillValidBlockEntity(this, player);
     }
 
-//    public boolean isEmpty() {
-//        return this.items.isEmpty();
-//    }
-
-//    public void setItem(int index, ItemStack stack) {
-//        this.items.set(index, stack);
-//        this.setChanged();
-//    }
-
-//    public void setItems(NonNullList<ItemStack> items) {
-//        this.items = items;
-//        this.setChanged();
-//    }
-
     private static <T extends BlockEntity> BlockEntityType<T> register(
             String name,
             FabricBlockEntityTypeBuilder.Factory<? extends T> entityFactory,
@@ -152,20 +124,8 @@ public class CopyBoxBlockEntity extends BlockEntity implements Container, MenuPr
     public static final BlockEntityType<CopyBoxBlockEntity> COPYBOX_BLOCK_ENTITY_TYPE =
             register("copybox_block_entity_type", CopyBoxBlockEntity::new, CopyBoxBlock.COPYBOX_BLOCK);
 
-
-//    private int clicks = 0;
-//    public int getClicks() {
-//        return this.clicks;
-//    }
-//
-//    public void incrementClicks() {
-//        this.clicks++;
-//        this.setChanged();
-//    }
-
     @Override
     protected void saveAdditional(ValueOutput output) {
-//        output.putInt("clicks", this.clicks);
         super.saveAdditional(output);
         ContainerHelper.saveAllItems(output, this.items);
     }
@@ -173,7 +133,6 @@ public class CopyBoxBlockEntity extends BlockEntity implements Container, MenuPr
     @Override
     protected void loadAdditional(ValueInput input) {
         super.loadAdditional(input);
-//        this.clicks = input.getIntOr("clicks", 0);
         ContainerHelper.loadAllItems(input, this.items);
     }
 
@@ -183,10 +142,6 @@ public class CopyBoxBlockEntity extends BlockEntity implements Container, MenuPr
         return Component.translatable("block.copybox.copybox_block_entity");
     }
 
-//    @Override
-//    public @Nullable AbstractContainerMenu createMenu(int containerId, Inventory inventory, Player player) {
-//        return null;
-//    }
     @Override
     public @Nullable AbstractContainerMenu createMenu(int containerId, Inventory inventory, Player player) {
         return new CopyBoxBlockEntityMenu(containerId, inventory, this);
@@ -212,24 +167,6 @@ public class CopyBoxBlockEntity extends BlockEntity implements Container, MenuPr
         level.sendBlockUpdated(worldPosition, state, state, Block.UPDATE_ALL);
     }
 
-//    private int ticksSinceLast = 0;
-//    public static void tick(Level level,
-//                            BlockPos blockPos,
-//                            BlockState blockState,
-//                            CopyBoxBlockEntity entity) {
-////        if (entity.isEmpty()) return;
-////        entity.ticksSinceLast++;
-////
-////
-////        if (entity.ticksSinceLast < 10) return;
-////        entity.ticksSinceLast = 0;
-////
-////        ItemStack duplicate = entity.getItem(0).split(1);
-////
-////        Block.popResourceFromFace(level, blockPos, Direction.UP, duplicate);
-////        Block.popResourceFromFace(level, blockPos, Direction.UP, duplicate);
-//    }
-
     private int ticksSinceLast = 0;
     public static void tick(Level level,
                             BlockPos blockPos,
@@ -250,9 +187,4 @@ public class CopyBoxBlockEntity extends BlockEntity implements Container, MenuPr
 
     public static void initialize() {
     }
-
-//    @Override
-//    public void onInitialize() {
-//        CopyBoxBlockEntity.initialize();
-//    }
 }

@@ -67,37 +67,8 @@ public class CopyBoxBlock extends BaseEntityBlock {
         if (!level.isClientSide() && level.getBlockEntity(pos) instanceof CopyBoxBlockEntity copyBoxBlockEntity) {
             player.openMenu(copyBoxBlockEntity);
         }
-//
-//        if (!(level.getBlockEntity(pos) instanceof CopyBoxBlockEntity copyBoxBlockEntity)) {
-//            return super.useWithoutItem(state, level, pos, player, hit);
-//        }
-
-//        copyBoxBlockEntity.incrementClicks();
-
-//        if (level.isClientSide()) {
-//            player.sendOverlayMessage(
-//                    Component.literal(
-//                            "You've clicked the block for the "
-//                                    + copyBoxBlockEntity.getClicks() + "th time."));
-//        }
-//        if (!player.getItemInHand(hand).isEmpty() && copyBoxBlockEntity.isEmpty()) {
-//            copyBoxBlockEntity.setItem(0, player.getItemInHand(hand).copy());
-//            player.getItemInHand(hand).setCount(0);
-//        }
         return InteractionResult.SUCCESS;
     }
-
-//    @Override
-//    protected InteractionResult useItemOn(ItemStack stack, BlockState state, Level world, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
-//        if (!(world.getBlockEntity(pos) instanceof CopyBoxBlockEntity copyBoxBlockEntity)) {
-//            return InteractionResult.PASS;
-//        }
-//        if (!player.getItemInHand(hand).isEmpty() && copyBoxBlockEntity.isEmpty()) {
-//            copyBoxBlockEntity.setItem(0, player.getItemInHand(hand).copy());
-//            player.getItemInHand(hand).setCount(0);
-//        }
-//        return InteractionResult.SUCCESS;
-//    }
 
     @Nullable
     @Override
@@ -107,9 +78,4 @@ public class CopyBoxBlock extends BaseEntityBlock {
 
     public static void initialize() {
     }
-//
-//    @Override
-//    public void onInitialize() {
-//        CopyBoxBlock.initialize();
-//    }
 }

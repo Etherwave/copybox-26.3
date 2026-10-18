@@ -20,20 +20,16 @@ import java.util.function.Function;
 public class CopyBoxBlockItem {
 
     private static BlockItem register(Block block, BlockItemId blockItemId) {
-//        // 2. 创建并注册方块物品
+        // 创建并注册方块物品
         BlockItem blockItem = new BlockItem(
                 block,
                 new Item.Properties().useBlockDescriptionPrefix().setId(blockItemId.item()));
         Registry.register(BuiltInRegistries.ITEM, blockItemId.item(), blockItem);
         return blockItem;
     }
+
     public static final BlockItem COPYBOX_BLOCK_ITEM = register(CopyBoxBlock.COPYBOX_BLOCK, CopyBoxBlock.COPYBOX_BLOCK_ID);
 
     public static void initialize() {
     }
-
-//    @Override
-//    public void onInitialize() {
-//        CopyBoxBlockItem.initialize();
-//    }
 }

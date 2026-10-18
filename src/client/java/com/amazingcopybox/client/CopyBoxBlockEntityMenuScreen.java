@@ -9,12 +9,10 @@ import net.minecraft.resources.Identifier;
 import net.minecraft.world.entity.player.Inventory;
 
 public class CopyBoxBlockEntityMenuScreen extends AbstractContainerScreen<CopyBoxBlockEntityMenu> {
-//    private static final Identifier CONTAINER_TEXTURE = Identifier.withDefaultNamespace("textures/gui/container/dispenser.png");
     private static final Identifier CONTAINER_TEXTURE = Identifier.fromNamespaceAndPath("copybox", "textures/gui/container/copybox_block_entity_menu.png");
 
     public CopyBoxBlockEntityMenuScreen(CopyBoxBlockEntityMenu abstractContainerMenu, Inventory inventory, Component component) {
         super(abstractContainerMenu, inventory, component);
-        // Center the title
         this.titleLabelX = (this.imageWidth - this.font.width(this.title)) / 2;
     }
 

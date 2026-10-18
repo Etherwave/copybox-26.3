@@ -19,28 +19,9 @@ public class CopyBoxCreativeTabs {
             .title(Component.translatable("creativeTab.copybox_block"))
             .displayItems((params, output) -> {
                 output.accept(CopyBoxBlockItem.COPYBOX_BLOCK_ITEM);
-                //                output.accept(CopyBoxItem.COPYBOX_ITEM);
-//                output.accept(ModItems.POISONOUS_APPLE);
-
-                // The tab builder also accepts Blocks
-//                output.accept(ModBlocks.CONDENSED_DIRT);
-//                output.accept(ModBlocks.CONDENSED_OAK_LOG);
-
-                // And custom ItemStacks
-//                ItemStack stack = new ItemStack(Items.SEA_PICKLE);
-//                stack.set(DataComponents.ITEM_NAME, Component.literal("Pickle Rick"));
-//                stack.set(DataComponents.LORE, new ItemLore(List.of(Component.literal("I'm pickle riiick!!"))));
-//                output.accept(stack);
-
-//                ItemStack stack = new ItemStack(CopyBoxBlockItem.COPYBOX_BLOCK_ITEM);
-////                stack.set(DataComponents.ITEM_NAME, Component.literal("Pickle Rick"));
-//                stack.set(DataComponents.ITEM_NAME, Component.literal("copybox:copybox_block"));
-////                stack.set(DataComponents.LORE, new ItemLore(List.of(Component.literal("I'm pickle riiick!!"))));
-//                output.accept(stack);
             })
             .build();
     public static void register() {
-        //        Registry.register(BuiltInRegistries.CREATIVE_MODE_TAB, CUSTOM_CREATIVE_TAB_KEY, CUSTOM_CREATIVE_TAB);
         Registry.register(
                 BuiltInRegistries.CREATIVE_MODE_TAB,
                 COPYBOX_CREATIVE_TAB_KEY,

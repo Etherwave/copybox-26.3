@@ -46,9 +46,8 @@ public class CopyBoxBlockEntityRenderer implements BlockEntityRenderer<CopyBoxBl
                                    ModelFeatureRenderer.@Nullable CrumblingOverlay crumblingOverlay) {
 //        LOGGER.info("extractRenderState");
         BlockEntityRenderer.super.extractRenderState(blockEntity, state, tickProgress, cameraPos, crumblingOverlay);
-//        state.setItemToRender(blockEntity.getItem(0));
 
-        state.getItemRenderState().clear(); // 每次先清空
+        state.getItemRenderState().clear();
         ItemStack stack = blockEntity.getItem(0);
 //        LOGGER.info("stack is empty: " + stack.isEmpty());
         if (!stack.isEmpty()) {

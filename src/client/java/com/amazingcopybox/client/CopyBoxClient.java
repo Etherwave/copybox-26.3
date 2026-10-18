@@ -12,7 +12,7 @@ public class CopyBoxClient implements ClientModInitializer {
 		// This entrypoint is suitable for setting up client-specific logic, such as rendering.
 		MenuScreens.register(CopyBoxMenuTypes.COPYBOX_BLOCK_ENTITY_MENU, CopyBoxBlockEntityMenuScreen::new);
 		BlockEntityRenderers.register(
-				CopyBoxBlockEntity.COPYBOX_BLOCK_ENTITY_TYPE,  // 你的 BlockEntityType
+				CopyBoxBlockEntity.COPYBOX_BLOCK_ENTITY_TYPE,
 				CopyBoxBlockEntityRenderer::new
 		);
 	}

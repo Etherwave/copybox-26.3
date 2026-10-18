@@ -20,8 +20,7 @@ public class CopyBox implements ModInitializer {
 		// This code runs as soon as Minecraft is in a mod-load-ready state.
 		// However, some things (like resources) may still be uninitialized.
 		// Proceed with mild caution.
-		LOGGER.info("Hello Fabric world!");
-//		CopyBoxItem.initialize(); // 加上这一行
+		LOGGER.info("Success load CopyBox mod!");
 		CopyBoxBlock.initialize();
 		CopyBoxBlockItem.initialize();
 		CopyBoxMenuTypes.initialize();
