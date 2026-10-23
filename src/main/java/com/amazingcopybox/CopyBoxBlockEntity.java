@@ -3,6 +3,9 @@ package com.amazingcopybox;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
 import net.minecraft.core.*;
+import net.minecraft.core.component.DataComponentGetter;
+import net.minecraft.core.component.DataComponentMap;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
@@ -15,6 +18,7 @@ import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.component.ItemContainerContents;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
@@ -183,6 +187,23 @@ public class CopyBoxBlockEntity extends BlockEntity implements Container, MenuPr
             entity.items.set(i, template.copy());
         }
         entity.setChanged();
+    }
+
+    @Override
+    protected void collectImplicitComponents(DataComponentMap.Builder builder) {
+        super.collectImplicitComponents(builder);
+        // 把 items 列表包装成 ItemContainerContents 组件
+        builder.set(DataComponents.CONTAINER, ItemContainerContents.fromItems(this.items));
+    }
+
+    @Override
+    protected void applyImplicitComponents(DataComponentGetter getter) {
+        super.applyImplicitComponents(getter);
+        // 从物品的组件里把物品栏数据读回来
+        ItemContainerContents contents = getter.get(DataComponents.CONTAINER);
+        if (contents != null) {
+            contents.copyInto(this.items);
+        }
     }
 
     public static void initialize() {

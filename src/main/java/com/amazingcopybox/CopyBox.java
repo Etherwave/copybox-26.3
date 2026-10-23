@@ -23,6 +23,7 @@ public class CopyBox implements ModInitializer {
 		LOGGER.info("Success load CopyBox mod!");
 		CopyBoxBlock.initialize();
 		CopyBoxBlockItem.initialize();
+		AmazingSwordItem.initialize();
 		CopyBoxMenuTypes.initialize();
 		CopyBoxBlockEntity.initialize();
 		CopyBoxCreativeTabs.register();

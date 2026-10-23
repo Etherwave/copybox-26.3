@@ -5,6 +5,7 @@ import com.mojang.serialization.MapCodec;
 import net.fabricmc.api.ModInitializer;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Registry;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.references.BlockItemId;
@@ -15,6 +16,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.component.ItemContainerContents;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.BaseEntityBlock;
 import net.minecraft.world.level.block.Block;
@@ -74,6 +76,27 @@ public class CopyBoxBlock extends BaseEntityBlock {
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState state, BlockEntityType<T> type) {
         return createTickerHelper(type, CopyBoxBlockEntity.COPYBOX_BLOCK_ENTITY_TYPE, CopyBoxBlockEntity::tick);
+    }
+
+
+    @Override
+    public BlockState playerWillDestroy(Level level, BlockPos pos, BlockState state, Player player) {
+        // 只在服务端处理，且不是创造模式
+        if (!level.isClientSide() && !player.isCreative()) {
+            if (level.getBlockEntity(pos) instanceof CopyBoxBlockEntity copyBox) {
+                // 1. 构造带数据的物品
+                ItemStack stack = new ItemStack(CopyBoxBlockItem.COPYBOX_BLOCK_ITEM);
+                ItemContainerContents contents = ItemContainerContents.fromItems(copyBox.getItems());
+                stack.set(DataComponents.CONTAINER, contents);
+
+                // 2. 清空 BlockEntity，防止原版战利品表再爆一次
+                copyBox.clearContent();
+
+                // 3. 把物品掉出来
+                Block.popResource(level, pos, stack);
+            }
+        }
+        return super.playerWillDestroy(level, pos, state, player);
     }
 
     public static void initialize() {

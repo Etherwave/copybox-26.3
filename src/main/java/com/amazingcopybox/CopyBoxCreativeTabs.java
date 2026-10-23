@@ -19,6 +19,7 @@ public class CopyBoxCreativeTabs {
             .title(Component.translatable("creativeTab.copybox_block"))
             .displayItems((params, output) -> {
                 output.accept(CopyBoxBlockItem.COPYBOX_BLOCK_ITEM);
+                output.accept(AmazingSwordItem.AMAZING_SWORD_ITEM);
             })
             .build();
     public static void register() {
