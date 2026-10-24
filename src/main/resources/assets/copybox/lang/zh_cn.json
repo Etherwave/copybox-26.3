@@ -2,5 +2,7 @@
   "creativeTab.copybox_block": "复制箱子",
   "block.copybox.copybox_block": "复制箱子方块",
   "block.copybox.copybox_block_entity": "复制箱子(copy/3s)",
-  "item.copybox.amazing_sword": "神奇的剑"
+  "item.copybox.amazing_sword": "神奇的剑",
+  "block.copybox.nether_portal": "下界门",
+  "block.copybox.end_portal": "末地传送门"
 }

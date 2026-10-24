@@ -20,6 +20,8 @@ public class CopyBoxCreativeTabs {
             .displayItems((params, output) -> {
                 output.accept(CopyBoxBlockItem.COPYBOX_BLOCK_ITEM);
                 output.accept(AmazingSwordItem.AMAZING_SWORD_ITEM);
+                output.accept(NetherPortalBlockItem.NETHER_PORTAL_BLOCK_ITEM);
+                output.accept(EndPortalBlockItem.END_PORTAL_BLOCK_ITEM);
             })
             .build();
     public static void register() {

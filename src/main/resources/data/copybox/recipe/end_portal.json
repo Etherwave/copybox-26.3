@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": "minecraft:ender_eye"
+  },
+  "result": {
+    "id": "copybox:end_portal"
+  }
+}

@@ -21,11 +21,13 @@ public class CopyBox implements ModInitializer {
 		// However, some things (like resources) may still be uninitialized.
 		// Proceed with mild caution.
 		LOGGER.info("Success load CopyBox mod!");
+		AmazingSwordItem.initialize();
 		CopyBoxBlock.initialize();
 		CopyBoxBlockItem.initialize();
-		AmazingSwordItem.initialize();
 		CopyBoxMenuTypes.initialize();
 		CopyBoxBlockEntity.initialize();
+		NetherPortalBlockItem.initialize();
+		EndPortalBlockItem.initialize();
 		CopyBoxCreativeTabs.register();
 	}
 
