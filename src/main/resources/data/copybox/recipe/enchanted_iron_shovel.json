@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "MD ",
+    "   ",
+    "   "
+  ],
+  "key": {
+    "M": "minecraft:iron_shovel",
+    "D": "minecraft:iron_ingot"
+  },
+  "result": {
+    "id": "minecraft:iron_shovel",
+    "components": {
+      "minecraft:enchantments": {
+        "minecraft:efficiency": 5,
+        "minecraft:unbreaking": 3,
+        "minecraft:fortune": 3,
+        "minecraft:mending": 1
+      }
+    }
+  }
+}
