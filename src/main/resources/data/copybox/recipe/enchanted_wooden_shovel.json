@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "MD ",
+    "   ",
+    "   "
+  ],
+  "key": {
+    "M": "minecraft:wooden_shovel",
+    "D": "#minecraft:planks"
+  },
+  "result": {
+    "id": "minecraft:wooden_shovel",
+    "components": {
+      "minecraft:enchantments": {
+        "minecraft:efficiency": 5,
+        "minecraft:unbreaking": 3,
+        "minecraft:fortune": 3,
+        "minecraft:mending": 1
+      }
+    }
+  }
+}

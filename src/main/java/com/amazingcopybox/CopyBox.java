@@ -28,6 +28,7 @@ public class CopyBox implements ModInitializer {
 		CopyBoxBlockEntity.initialize();
 		NetherPortalBlockItem.initialize();
 		EndPortalBlockItem.initialize();
+		AmazingArmorItem.initialize();
 		CopyBoxCreativeTabs.register();
 	}
 

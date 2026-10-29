@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "MD ",
+    "   ",
+    "   "
+  ],
+  "key": {
+    "M": "copybox:amazing_helmet",
+    "D": "minecraft:dirt"
+  },
+  "result": {
+    "id": "copybox:amazing_helmet",
+    "components": {
+      "minecraft:enchantments": {
+        "minecraft:protection": 4,
+        "minecraft:unbreaking": 3,
+        "minecraft:mending": 1,
+        "minecraft:respiration": 3,
+        "minecraft:aqua_affinity": 1
+      }
+    }
+  }
+}

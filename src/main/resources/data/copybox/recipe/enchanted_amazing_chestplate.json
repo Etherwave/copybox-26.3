@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "MD ",
+    "   ",
+    "   "
+  ],
+  "key": {
+    "M": "copybox:amazing_chestplate",
+    "D": "minecraft:dirt"
+  },
+  "result": {
+    "id": "copybox:amazing_chestplate",
+    "components": {
+      "minecraft:enchantments": {
+        "minecraft:protection": 4,
+        "minecraft:unbreaking": 3,
+        "minecraft:mending": 1,
+        "minecraft:thorns": 3
+      }
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "layers": {
+    "humanoid": [
+      {
+        "texture": "copybox:guidite"
+      }
+    ],
+    "humanoid_baby": [
+      {
+        "texture": "copybox:guidite"
+      }
+    ],
+    "humanoid_leggings": [
+      {
+        "texture": "copybox:guidite"
+      }
+    ]
+  }
+}

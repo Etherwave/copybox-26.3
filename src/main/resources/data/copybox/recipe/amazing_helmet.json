@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "MMM",
+    "M M",
+    "   "
+  ],
+  "key": {
+    "M": "minecraft:dirt"
+  },
+  "result": {
+    "id": "copybox:amazing_helmet"
+  }
+}

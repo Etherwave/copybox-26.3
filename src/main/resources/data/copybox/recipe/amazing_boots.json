@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "   ",
+    "M M",
+    "M M"
+  ],
+  "key": {
+    "M": "minecraft:dirt"
+  },
+  "result": {
+    "id": "copybox:amazing_boots"
+  }
+}

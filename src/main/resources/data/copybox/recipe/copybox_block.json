@@ -1,12 +1,12 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "###",
-    "#D#",
-    "###"
+    "MD ",
+    "   ",
+    "   "
   ],
   "key": {
-    "#": "minecraft:oak_planks",
+    "M": "minecraft:chest",
     "D": "minecraft:diamond"
   },
   "result": {

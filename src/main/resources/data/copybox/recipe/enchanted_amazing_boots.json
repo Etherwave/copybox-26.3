@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "MD ",
+    "   ",
+    "   "
+  ],
+  "key": {
+    "M": "copybox:amazing_boots",
+    "D": "minecraft:dirt"
+  },
+  "result": {
+    "id": "copybox:amazing_boots",
+    "components": {
+      "minecraft:enchantments": {
+        "minecraft:protection": 4,
+        "minecraft:unbreaking": 3,
+        "minecraft:mending": 1,
+        "minecraft:feather_falling": 4,
+        "minecraft:depth_strider": 3
+      }
+    }
+  }
+}

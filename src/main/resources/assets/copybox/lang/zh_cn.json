@@ -4,5 +4,9 @@
   "block.copybox.copybox_block_entity": "复制箱子(copy/3s)",
   "item.copybox.amazing_sword": "神奇的剑",
   "block.copybox.nether_portal": "下界门",
-  "block.copybox.end_portal": "末地传送门"
+  "block.copybox.end_portal": "末地传送门",
+  "item.copybox.amazing_leggings": "神奇的护腿",
+  "item.copybox.amazing_boots": "神奇的靴子",
+  "item.copybox.amazing_chestplate": "神奇的胸甲",
+  "item.copybox.amazing_helmet": "神奇的头盔"
 }

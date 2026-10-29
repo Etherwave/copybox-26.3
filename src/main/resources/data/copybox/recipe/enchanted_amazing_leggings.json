@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "MD ",
+    "   ",
+    "   "
+  ],
+  "key": {
+    "M": "copybox:amazing_leggings",
+    "D": "minecraft:dirt"
+  },
+  "result": {
+    "id": "copybox:amazing_leggings",
+    "components": {
+      "minecraft:enchantments": {
+        "minecraft:protection": 4,
+        "minecraft:unbreaking": 3,
+        "minecraft:mending": 1,
+        "minecraft:thorns": 3
+      }
+    }
+  }
+}

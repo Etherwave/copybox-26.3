@@ -22,6 +22,10 @@ public class CopyBoxCreativeTabs {
                 output.accept(AmazingSwordItem.AMAZING_SWORD_ITEM);
                 output.accept(NetherPortalBlockItem.NETHER_PORTAL_BLOCK_ITEM);
                 output.accept(EndPortalBlockItem.END_PORTAL_BLOCK_ITEM);
+                output.accept(AmazingArmorItem.AMAZING_HELMET_ITEM);
+                output.accept(AmazingArmorItem.AMAZING_CHESTPLATE_ITEM);
+                output.accept(AmazingArmorItem.AMAZING_LEGGINGS_ITEM);
+                output.accept(AmazingArmorItem.AMAZING_BOOTS_ITEM);
             })
             .build();
     public static void register() {
